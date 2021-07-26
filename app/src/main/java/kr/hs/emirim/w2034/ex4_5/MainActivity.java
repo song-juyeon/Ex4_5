@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        editItem = findViewById(R.id.edit_item);
         arrList = new ArrayList<>();
         ListView list1 = findViewById(R.id.list1);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrList);
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 arrList.add(editItem.getText().toString());
                 adapter.notifyDataSetChanged();     //새로고침(?)
+                editItem.setText("");               //기존 작성 제거(EditText 초기화)
             }
         });
 
